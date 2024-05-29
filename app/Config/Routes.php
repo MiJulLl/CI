@@ -39,23 +39,26 @@ $routes->setAutoRoute(true);
 
 
 // ini untuk user
-$routes->get('/', 'userAutentifikasi::login');
 $routes->get('/login', 'UserAutentifikasi::login');
 $routes->get('/register', 'UserAutentifikasi::register');
 $routes->post('/valid_register', 'UserAutentifikasi::valid_register');
 $routes->post('/valid_login', 'userAutentifikasi::valid_login');
 $routes->get('/logout', 'UserAutentifikasi::logout');
+$routes->get('/editProfile', 'User\Dashboard::Profile');
 
-
-
-// ganti dengan userAutentifikasi
-$routes->group('user', ['filter' => 'userAutentifikasi'], function ($routes) {
+$routes->get('/', 'User\Dashboard::index');
+$routes->group('user', function ($routes) {
     $routes->get('dashboard', 'User\Dashboard::index');
     $routes->get('dashboard/(:any)', 'User\Dashboard::detail/$1');
+});
+// ganti dengan userAutentifikasi
+$routes->group('user', ['filter' => 'userAutentifikasi'], function ($routes) {
     $routes->post('pembayaran/(:any)', 'User\Dashboard::pembayaran/$1');
     $routes->post('listBarang', 'User\Dashboard::listBarang');
+    $routes->get('listBarang', 'User\Dashboard::listBarang');
     $routes->get('DaftarBelanja', 'User\Dashboard::daftarBelanja');
     $routes->get('Profile', 'User\Dashboard::Profile');
+    $routes->get('/editProfile', 'User\Dashboard::Profile');
     $routes->post('UpdateProfile', 'User\Dashboard::UpdateProfile');
     $routes->post('keranjang/(:any)', 'User\Dashboard::keranjang/$1');
     $routes->get('Daftarkeranjang', 'User\Dashboard::daftarkeranjang');
@@ -64,6 +67,7 @@ $routes->group('user', ['filter' => 'userAutentifikasi'], function ($routes) {
     $routes->get('ubahkeranjang/(:segment)/beli', 'User\Dashboard::beli/$1');
     $routes->get('keranjangpembayaran', 'User\Dashboard::keranjangpembayaran');
     $routes->post('listBarangkeranjang', 'User\Dashboard::listBarangkeranjang');
+    $routes->get('listBarangkeranjang', 'User\Dashboard::listBarangkeranjang');
 });
 
 // ini untuk admin

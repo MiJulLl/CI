@@ -130,7 +130,7 @@ class Dashboard extends BaseController
 
         $hasil = json_decode(json_encode($transaksi->jointransaksi($this->session->get('id'))), true);
         $data['hasil'] = $hasil;
-        echo view('user/listBarang', $data);
+        echo view('user/terimakasih', $data);
     }
     public function daftarBelanja()
     {
@@ -250,6 +250,6 @@ class Dashboard extends BaseController
 
         $hasil = json_decode(json_encode($transaksi->jointransaksi($this->session->get('id'))), true);
         $data['hasil'] = $hasil;
-        echo view('user/listBarang', $data);
+        echo view('user/terimakasih', $data);
     }
 }

@@ -1,8 +1,7 @@
 <?= $this->extend('user/layout/templateDetail'); ?>
 <?= $this->section('content'); ?>
 <div>
-    <form class="form-outline" action="<?= base_url('/user/listBarang/') ?>" method="post"
-        enctype="multipart/form-data">
+    <form class="form-outline" action="<?= base_url('/user/listBarang/') ?>" method="post" enctype="multipart/form-data">
 
         <div class="card" style="background :#DDD4CD">
             <h5 class="card-header">Data Diri</h5>
@@ -38,8 +37,7 @@
 
                         <td hidden><?= $produk['id'] ?></td>
                         <input type="number" name="id_product" value="<?= $produk['id'] ?>" class="id" hidden>
-                        <td><img src="<?= base_url('assets/images/produk/' . $produk['id'] . '/' . $produk['gambar']); ?>"
-                                width="50">
+                        <td><img src="<?= base_url('assets/images/produk/' . $produk['id'] . '/' . $produk['gambar']); ?>" width="50">
                         </td>
                         <td>
                             <strong><?= $produk['nama'] ?></strong><br>
@@ -96,8 +94,7 @@
                         <li class="list-group-item">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <input type="radio" name="payment" value="Paypay" class="payment-radio"
-                                        aria-selected="true" checked>
+                                    <input type="radio" name="payment" value="Paypay" class="payment-radio" aria-selected="true" checked>
                                     <img src="Paypay.png" class="payment-logo">
                                     <p class="card-text">Paypay</p>
                                 </div>
@@ -128,7 +125,7 @@
         </div>
 
         <div class="d-grid gap-2" style="margin: 20px;">
-            <button class="btn btn-primary" type="submit">Chekout</button>
+            <button class="btn btn-primary" type="submit">Checkout</button>
         </div>
     </form>
 </div>

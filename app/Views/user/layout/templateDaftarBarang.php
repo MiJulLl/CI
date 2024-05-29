@@ -130,10 +130,15 @@
         <div class="profile-image"><img src="/img/undraw_profile.svg"></div>
 
         <div class="profile-dropdown">
-            <div class="profile-dropdown-item"><a class="btn btn-prymary" href="<?= base_url('/user/Profile') ?>">Edit
+            <?php if ($session->get('username')) : ?>
+            <div class="profile-dropdown-item"><a class="btn btn-prymary" href="<?= base_url('/editProfile') ?>">Edit
                     Profil</a></div>
             <div class="profile-dropdown-item"><a class="btn btn-prymary" href="<?= base_url('/logout') ?>">Logout</a>
             </div>
+            <?php else : ?>
+            <div class="profile-dropdown-item"><a class="btn btn-prymary" href="<?= base_url('/login') ?>">Login</a>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
 </header>

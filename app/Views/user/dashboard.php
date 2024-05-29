@@ -5,11 +5,15 @@
 <div class="container">
     <h2>Featured Products</h2>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-between">
             <?php foreach ($produk as $p) : ?>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="<?= base_url('assets/images/produk/' . $p['id'] . '/' . $p['gambar']); ?>" class="card-img-top" alt="<?= $p['nama'] ?>" width="50">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3 card-column">
+                    <div class="card mx-auto mb-4">
+                        <?php if (!empty($p['gambar'])) : ?>
+                            <img src="<?= base_url('assets/images/produk/' . $p['id'] . '/' . $p['gambar']); ?>" class="card-img-top" alt="<?= $p['nama'] ?>" width="auto">
+                        <?php else : ?>
+                            <div class="placeholder-image"></div>
+                        <?php endif; ?>
                         <div class="card-body">
                             <h4 class="card-title"><?= $p['nama'] ?></h4>
                             <?php if (($p['promo']) == 0) : ?>
@@ -31,16 +35,14 @@
                             <div class="position-absolute bottom-0" style="padding-bottom: 10px;">
                                 <a href="/user/dashboard/<?= $p['slug'] ?> " class="btn btn-primary">Lihat</a>
                             </div>
-
                         </div>
                     </div>
                 </div>
             <?php endforeach ?>
         </div>
-
-
-
     </div>
+</div>
 
 
-    <?= $this->endSection(); ?>
+
+<?= $this->endSection(); ?>

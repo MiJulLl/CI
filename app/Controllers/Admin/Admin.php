@@ -90,6 +90,7 @@ class Admin extends BaseController
             $result = $produk->last();
             $folderID = $result->id;
             $pathfile = '../public/assets/images/produk/' . $folderID;
+
             $upload->move(WRITEPATH . $pathfile);
             return redirect('admin');
         }
